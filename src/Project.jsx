@@ -1,4 +1,4 @@
 function Project(){
-    return(<p>hi</p>)
+    return(<p>hello</p>)
 }
 export default Project
