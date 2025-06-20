@@ -1,4 +1,4 @@
 function Project(){
-    return(<p>hello, jhcvsjgcvCvX</p>)
+    return(<p>hello, welcome!</p>)
 }
 export default Project
