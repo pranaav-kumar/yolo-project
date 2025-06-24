@@ -9,7 +9,8 @@ function Project() {
     const [descValue, setDescValue] = useState(""); 
 
     const btnClick = () => {
-        setProjectName(inputValue); 
+        setProjectName(inputValue);
+        setDescValue(descValue);
     };
 
     if (projectName === "") {
@@ -17,13 +18,11 @@ function Project() {
             <>
                 <h3>Enter project name:</h3>
                 <input
-                    value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
                 />
 
                 <h3>Enter project description:</h3>
                 <input
-                    value={descValue}
                     onChange={(e) => setDescValue(e.target.value)}
                 />
                 <button onClick={btnClick}>Submit</button>
