@@ -18,13 +18,15 @@ function Steps(){
         <div>
             <h3>Add steps:</h3>
             <button onClick={addSteps}>+</button>
+
+            {control && <CreateSteps onSubmit={handleSubmit}/>} 
+            
             {(steps==0) ? 
 
             <p>you dont have any steps</p>
             :
             <h2>Steps:</h2>}
 
-            {control && <CreateSteps onSubmit={handleSubmit}/>} 
         </div>
     );
 }
