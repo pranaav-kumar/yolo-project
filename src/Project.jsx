@@ -5,7 +5,6 @@ import Steps from './Steps'
 function Project() {
     const [projectName, setProjectName] = useState("");
     const [inputValue, setInputValue] = useState(""); 
-    const [projectDesc, setProjectDesc] = useState("");
     const [descValue, setDescValue] = useState(""); 
 
     const btnClick = () => {

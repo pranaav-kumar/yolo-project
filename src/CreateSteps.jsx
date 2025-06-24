@@ -3,18 +3,22 @@ import { useState } from 'react';
 
 function CreateSteps({onSubmit}){
 
-    const [stepName,setStepName] = useState();
-    const [stepDesc,setStepDesc] = useState();
-    const [isMandatory,setIsMandatory] = useState();
+    const [stepName,setStepName] = useState('');
+    const [stepDesc,setStepDesc] = useState('');
+    const [isMandatory,setIsMandatory] = useState(false);
 
     const handleClick = () => {
-        onSubmit();
-        showSteps();
+
+        const stepData = {
+            name: stepName,
+            description: stepDesc,
+            mandatory: isMandatory,
+        }
+
+        onSubmit(stepData);
+
 };
 
-    const showSteps = () =>{
-        
-    }
 
     return(
     <div>
