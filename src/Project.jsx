@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Steps from './Steps'
 
+
 function Project() {
     const [projectName, setProjectName] = useState("");
     const [inputValue, setInputValue] = useState(""); 
