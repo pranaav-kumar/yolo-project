@@ -1,4 +1,3 @@
-import Steps from './Steps'
 import { useState } from 'react';
 
 function CreateSteps({onSubmit}){

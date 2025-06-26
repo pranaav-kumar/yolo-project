@@ -24,7 +24,7 @@ function Project() {
                 <input
                     onChange={(e) => setDescValue(e.target.value)}
                 />
-                <button onClick={btnClick}>Submit</button>
+                <button onClick={btnClick}>Create</button>
             </>
         );
     }

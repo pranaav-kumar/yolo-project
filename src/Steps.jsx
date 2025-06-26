@@ -1,18 +1,16 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import CreateSteps from './CreateSteps';
+import { useNavigate } from 'react-router-dom';
 
 function Steps() {
-    const [steps, setSteps] = useState(0);
+
     const [control, setControl] = useState(false);
     const [stepVal, setStepVal] = useState([]);
-    const [activeIndex, setActiveIndex] = useState(null);
 
     const navigate = useNavigate();
 
     const addSteps = () => {
         setControl(true);
-        setSteps(steps + 1);
     };
 
     const handleSubmit = (stepData) => {
@@ -20,52 +18,17 @@ function Steps() {
         setControl(false);
     };
 
-    const toggleStep = (index) => {
-        setActiveIndex(prevIndex => (prevIndex === index ? null : index));
-    };
 
-    const addActivity = () => {
-        navigate('/sample');
-    };
 
     return (
         <div>
             <h3>Add steps:</h3>
             <button onClick={addSteps}>+</button>
             {control && <CreateSteps onSubmit={handleSubmit} />}
+            <br></br>
 
-            {steps === 0 ? (
-                <p>You don't have any steps</p>
-            ) : (
-                <>
-                    <h3>Steps:</h3>
-                    {stepVal.map((step, index) => (
-                        <div key={index}>
-                            <h4
-                                onClick={() => toggleStep(index)}>
-                                Step {index + 1}: {step.name}
-                            </h4>
+            <button onClick={()=>navigate('/steps',{ state: { stepArr: stepVal } })}>STEPS</button>
 
-                            {activeIndex === index && (
-                                <div>
-                                    <p>Description: {step.description}</p>
-                                    <p>Mandatory: {step.mandatory ? 'Yes' : 'No'}</p>
-                                    <div>
-                                        <p>Activity:</p>
-                                        <button
-                                            onClick={() => addActivity()}>+</button>
-                                        <div>
-                                            {step.activities.map((act, i) => (
-                                                <li key={i}>{act}</li>
-                                            ))}
-                                        </div>
-                                    </div>
-                                </div>
-                            )}
-                        </div>
-                    ))}
-                </>
-            )}
         </div>
     );
 }
