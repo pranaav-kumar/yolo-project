@@ -21,13 +21,14 @@ function Steps() {
 
 
     return (
-        <div>
-            <h3>Add steps:</h3>
-            <button onClick={addSteps}>+</button>
+        <div className="conatiner mt-4">
+            <h3 className="mb-3"> Add steps:</h3>
+            <button className="btn btn-outline-success me-2" onClick={addSteps}>+</button>
             {control && <CreateSteps onSubmit={handleSubmit} />}
-            <br></br>
+            
+            <br> </br>
 
-            <button onClick={()=>navigate('/steps',{ state: { stepArr: stepVal } })}>STEPS</button>
+            <button className="btn btn-primary" onClick={()=>navigate('/steps',{ state: { stepArr: stepVal } })}>STEPS</button>
 
         </div>
     );
