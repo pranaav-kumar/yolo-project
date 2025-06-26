@@ -12,9 +12,11 @@ function Project() {
         setDescValue(descValue);
     };
 
-    if (projectName === "") {
-        return (
-            <>
+    return(
+        
+        projectName === '' ? 
+        
+        <>
                 <h3>Enter project name:</h3>
                 <input
                     onChange={(e) => setInputValue(e.target.value)}
@@ -25,17 +27,17 @@ function Project() {
                     onChange={(e) => setDescValue(e.target.value)}
                 />
                 <button onClick={btnClick}>Create</button>
-            </>
-        );
-    }
+            </> 
+            
+            :
 
-    return (
-        <div>
+            <div>
             <h1>{projectName}</h1>
             <h3>{descValue}</h3>
             <Steps/>
-        </div>
-    );
+            </div>
+        
+);
 }
 
 export default Project;
