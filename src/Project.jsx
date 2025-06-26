@@ -12,30 +12,37 @@ function Project() {
         setDescValue(descValue);
     };
 
-    if (projectName === "") {
-        return (
-            <>
+    return(
+        
+        projectName === '' ? 
+
+        <>
+                <div className="container mt-5"></div>
                 <h3>Enter project name:</h3>
                 <input
-                    onChange={(e) => setInputValue(e.target.value)}
+                className="form-control mb-3"
+                placeholder="Project name"
+                onChange={(e) => setInputValue(e.target.value)}
                 />
 
                 <h3>Enter project description:</h3>
                 <input
-                    onChange={(e) => setDescValue(e.target.value)}
+                className="form-control mb-3"
+                placeholder="Project description"
+                onChange={(e) => setDescValue(e.target.value)}
                 />
-                <button onClick={btnClick}>Create</button>
+                <button className="btn btn-primary" onClick={btnClick}>Create</button>
             </>
-        );
-    }
+            
+        :
 
-    return (
         <div>
-            <h1>{projectName}</h1>
-            <h3>{descValue}</h3>
-            <Steps/>
+        <h1>{projectName}</h1>
+        <h3>{descValue}</h3>
+        <Steps/>
         </div>
-    );
+        
+);
 }
 
 export default Project;
