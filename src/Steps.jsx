@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import CreateSteps from './CreateSteps';
 
 function Steps() {
@@ -6,6 +7,8 @@ function Steps() {
     const [control, setControl] = useState(false);
     const [stepVal, setStepVal] = useState([]);
     const [activeIndex, setActiveIndex] = useState(null);
+
+    const navigate = useNavigate();
 
     const addSteps = () => {
         setControl(true);
@@ -21,10 +24,8 @@ function Steps() {
         setActiveIndex(prevIndex => (prevIndex === index ? null : index));
     };
 
-    const addActivity = (index) => {
-        const updatedSteps = [...stepVal];
-        updatedSteps[index].activities.push(`Activity ${updatedSteps[index].activities.length + 1}`);
-        setStepVal(updatedSteps);
+    const addActivity = () => {
+        navigate('/sample');
     };
 
     return (
@@ -52,7 +53,7 @@ function Steps() {
                                     <div>
                                         <p>Activity:</p>
                                         <button
-                                            onClick={() => addActivity(index)}>+</button>
+                                            onClick={() => addActivity()}>+</button>
                                         <div>
                                             {step.activities.map((act, i) => (
                                                 <li key={i}>{act}</li>
